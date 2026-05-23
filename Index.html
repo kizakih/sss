@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 1st Monthsary ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#ff758c,#ff7eb3);
+      position:relative;
+      padding:20px;
+    }
+
+    /* Floating Hearts */
+    .heart{
+      position:absolute;
+      bottom:-20px;
+      color:rgba(255,255,255,0.7);
+      animation: floatUp linear infinite;
+      user-select:none;
+    }
+
+    @keyframes floatUp{
+      0%{
+        transform:translateY(0) scale(0.5);
+        opacity:0;
+      }
+
+      20%{
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(-120vh) scale(1.5);
+        opacity:0;
+      }
+    }
+
+    /* Main Card */
+    .card{
+      width:100%;
+      max-width:400px;
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:25px;
+      padding:35px 25px;
+      text-align:center;
+      color:white;
+      box-shadow:0 8px 30px rgba(0,0,0,0.2);
+      z-index:2;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .big-heart{
+      font-size:70px;
+      animation:heartbeat 1s infinite;
+      margin-bottom:15px;
+    }
+
+    h1{
+      font-size:2rem;
+      margin-bottom:15px;
+      font-weight:700;
+    }
+
+    p{
+      font-size:1rem;
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    button{
+      border:none;
+      padding:14px 28px;
+      border-radius:50px;
+      background:white;
+      color:#ff4f81;
+      font-size:1rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      background:#ff4f81;
+      color:white;
+    }
+
+    .message{
+      margin-top:20px;
+      display:none;
+      animation:fadeIn 1s ease;
+      font-size:1rem;
+      font-weight:500;
+    }
+
+    @keyframes heartbeat{
+      0%{
+        transform:scale(1);
+      }
+
+      25%{
+        transform:scale(1.15);
+      }
+
+      50%{
+        transform:scale(1);
+      }
+
+      75%{
+        transform:scale(1.15);
+      }
+
+      100%{
+        transform:scale(1);
+      }
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media(max-width:480px){
+
+      .card{
+        padding:30px 20px;
+      }
+
+      h1{
+        font-size:1.7rem;
+      }
+
+      p{
+        font-size:0.95rem;
+      }
+
+      .big-heart{
+        font-size:60px;
+      }
+
+      button{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Main Card -->
+  <div class="card">
+    <div class="big-heart">❤️</div>
+
+    <h1>Happy 1st Monthsary</h1>
+
+    <p>
+      One month with you has been one of the happiest moments of my life.
+      Thank you for your love, care, and the beautiful memories we've shared.
+      I hope this is only the beginning of our wonderful story together. 💖
+    </p>
+
+    <button onclick="showMessage()">
+      Open My Message 💌
+    </button>
+
+    <div class="message" id="loveMessage">
+      I love you more every single day. ❤️ <br>
+      Happy 1st Monthsary, my love!
+    </div>
+  </div>
+
+  <script>
+    // Show hidden message
+    function showMessage(){
+      document.getElementById("loveMessage").style.display = "block";
+    }
+
+    // Floating heart animation
+    function createHeart(){
+      const heart = document.createElement("div");
+
+      heart.classList.add("heart");
+      heart.innerHTML = "❤";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 250);
+  </script>
+
+</body>
+</html>
